@@ -29,7 +29,16 @@ class MainBody(UserControl):
                     height=35,
                     width=250,
                     border_radius=20,
-                    content=Row()
+                    content=Row(
+                      controls=[
+                        Icon(icons.SEARCH_OUTLINED),
+                        TextField(
+                          width=200,
+                          bgcolor=None,
+                          border=None
+                        )
+                      ]
+                    )
                   )
                 ]
               )
