@@ -16,6 +16,6 @@ class HomeScreen(UserControl):
   def build(self):
     return Column(
       controls=[
-        BP(),
+        BP(self.pg),
       ]
     )

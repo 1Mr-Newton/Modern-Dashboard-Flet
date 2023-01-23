@@ -6,6 +6,7 @@ class MainBody(UserControl):
     self.custom_colors = Colors()
 
 
+
   def build(self):
     return Column(
       controls=[
@@ -19,8 +20,18 @@ class MainBody(UserControl):
                   Column(
                     spacing = 0,
                     controls=[
-                      Text('Dashboard',color='black'),
-                      Text('Payments updates',color='black'),
+                      Text(
+                        value='Dashboard',
+                        color=self.custom_colors.grey800,
+                        size=20,
+                        font_family='SF Pro Heavy'
+                      ),
+                      Text(
+                        value='Payments updates',
+                        color=self.custom_colors.grey400,
+                        size=12,
+                        font_family='SF Pro Regular'
+                      ),
                     ]
                   ),
                   Container(
@@ -29,17 +40,32 @@ class MainBody(UserControl):
                     height=35,
                     width=250,
                     border_radius=20,
+                    padding=padding.only(left=10),
                     content=Row(
                       controls=[
-                        Icon(icons.SEARCH_OUTLINED),
+                        Container(
+                          content=Icon(icons.SEARCH_OUTLINED,color=self.custom_colors.grey800),
+                        ),
                         TextField(
                           width=200,
                           bgcolor=None,
-                          border=None
+                          border=InputBorder.NONE,
+                          color=self.custom_colors.grey800,
+                          hint_text='Search',
+                          hint_style=TextStyle(color=self.custom_colors.grey400,),
                         )
                       ]
                     )
                   )
+                ]
+              ),
+
+              Row(
+                scroll='auto',
+                alignment='spaceBetween',
+                controls=[
+                  Container(),
+
                 ]
               )
             ]

@@ -1,24 +1,44 @@
 from flet import *
-import back
 from utils.sidebar_button import SidebarButton
+
 class LeftSidebar(UserControl):
   def __init__(self):
     super().__init__()
-    # self.pg = pg
     self.sidebar_btn = SidebarButton
 
-  def change_page(self):
-    self.page.go('')  
-  def switch_screen(self,route):
-    self.page.go(route)  
-    back.back_ = '/events'
   def build(self):
     return Column(
       controls=[
-        Container(height=50),
+        Container(
+          margin=margin.only(bottom=40),
+          height=50,
+          content=Row(
+            spacing=5,
+            alignment='center',
+            vertical_alignment='center',
+            controls=[
+              Container(
+                height=11,
+                width=11,
+                bgcolor='red',
+                border_radius=10
+              ),
+              Container(
+                height=11,
+                width=11,
+                bgcolor='orange',
+                border_radius=10
+              ),
+              Container(
+                height=11,
+                width=11,
+                bgcolor='green',
+                border_radius=10
+              ),
+            ]
+          )  
+        ),
         self.sidebar_btn('home1'),
-        # self.sidebar_btn,
-        # self.sidebar_btn,
        
       ]
     )
